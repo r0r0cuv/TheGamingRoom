@@ -59,7 +59,7 @@ Game will store multiple Teams, and Team will store multiple Players. This relat
 
 Lastly, the diagram shows examples of encapsulation. Each class manages its own data and methods. Access to this data is regulated by the methods provided in each class.
 
-![UML Diagram](images/UMLDiagram.jpg)
+![UML Diagram](images/uml-diagram.jpg)
 
  
 
