@@ -1,94 +1,27 @@
 # TheGamingRoom
 The Gaming Room Operating Systems and designs 
 
-🎮 Draw It or Lose It – Software Design Project
-📌 Overview
+Project Report
+Client & Software Requirements
 
-This project is a software design document created for The Gaming Room, a company looking to expand their Android game Draw It or Lose It into a web-based, cross-platform application.
+The client for this project is The Gaming Room, which currently has an Android version of Draw It or Lose It and wanted a web-based, cross-platform version of the game created. Some key system requirements included supporting multiple teams with players, unique game/team names as well as player names, and using a distributed application architecture that could support mutliple users while only having one instance of the game service running(using design patterns).
 
-The goal of this project is to design a scalable, secure, and efficient system that supports multiple users, teams, and platforms using modern software architecture principles.
+What Did I Do Well
 
-🚀 Key Features
-Supports multiple teams and players
-Ensures unique names for games, teams, and players
-Implements Singleton pattern for game service control
-Uses Iterator pattern for searching collections
-Designed for cross-platform compatibility
-Built for a distributed web-based environment
-🏗️ System Architecture
-🔹 Three-Tier Architecture
-Presentation Layer – Web/mobile client interface
-Application Layer – Game logic, sessions, scoring
-Data Layer – Database and storage management
-🔹 Technologies Recommended
-Operating System: Linux (Ubuntu / Red Hat)
-Web Server: NGINX
-Database: PostgreSQL
-Cloud Support: Scalable cloud-based infrastructure
+I think I did well with coming up with the system analysis and picking the technologies to use. I was able to clearly communicate why a Linux server would be optimal as well as what types of architecture(distibuted) and database(postgresql) would suit their needs. I applied design patterns such as Singleton and Iterator to help facilitate some of these requirements.
 
-💾 Memory Management
+What Was Helpful To You in the Design Process
 
-To ensure performance and responsiveness:
+I found it helpful working through the design document before writing any code. It helped me layout my ideas on how I wanted the application to be structured, how I wanted pieces to interact with each other, and catch some problems before they happened(i.e. memory,scaling). During development this then helped me not be as confused when writing my code.
 
-Uses lazy loading to load images only when needed
-Implements caching for recently used images
-Supports asynchronous loading to prevent lag
-Utilizes Linux memory controls (/proc/sys/vm)
+What Would you Improve
 
-👉 This prevents loading all ~1.6GB of image data at once and improves efficiency.
+If I could redo one thing for this project it would be the initial system architecture picture and description. I would make it more in-depth and visually easier to understand how all of the different parts of the distributed system talk to each other.
 
-🗄️ Storage Management
-Stores structured data using PostgreSQL
-Stores images separately using file/object storage
-Uses Content Delivery Networks (CDN) for faster access
-Supports backup and replication for reliability
-🌐 Distributed Systems & Networking
-Uses a client-server architecture
-Supports communication across:
-Windows
-macOS
-Linux
-Mobile devices
-Key Considerations:
-Network latency
-System outages
-Load balancing
-Data consistency
-🔐 Security Features
-HTTPS with TLS encryption
-Role-Based Access Control (RBAC)
-Secure authentication and session handling
-Data protection (in transit and at rest)
-Regular updates and patching
-🧩 Design Patterns Used
-Singleton Pattern – Ensures only one GameService instance
-Iterator Pattern – Efficient searching and validation
-Object-Oriented Design – Inheritance and encapsulation
-📊 Evaluation Summary
-Platform	Strength
-Linux	Best for servers (scalable, secure, cost-effective)
-Windows	User-friendly, widely used
-Mac	Stable but expensive
-Mobile	Best for clients, not servers
-✅ Final Recommendation
+How did you determine the users’ needs?
 
-The system should be deployed using a Linux-based cloud server with a distributed architecture. This approach provides:
+I determined the users need by using concepts such as performance, scalability, and usability. An example of this would be me using ideas such as lazy loading, caching results to improve performance and decrease lag time while playing games. Understanding the users needs is important to factor into your software because you want to make sure the software is usable, runs well, and doesn't have any lag.
 
-Scalability
-Cross-platform support
-High performance
-Strong security
-👩‍💻 Author
+How did you go about Designing your software?
 
-Rosalie Reblora
-Bachelor of Science in Computer Science
-
-
-📚 Project Type
-
-📘 Academic Project – SNHU CS 230
-Software Design & Architecture
-
-💡 Reflection
-
-This project strengthened my understanding of system architecture, memory and storage management, and distributed systems. It also helped me apply real-world design decisions for building scalable and secure applications.
+I approached designing my software by first doing a requirement analysis, picking out architectures, and design patterns to suit those requirements. In the future I would take a similar approach and use things such as OOP when designing my application, making sure to modularize my architecture, and planning for how my software will scale later on. I would also do more flwo charts and maybe use a prototyping software.
