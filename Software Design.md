@@ -9,8 +9,10 @@ Version 1.0
 
 Document Revision History
 
-Version  	Date	      Author	            Comments
-1.0	   04/16/2023 	Rosalie Reblora       Updated Recommendations section with system architecture, memory, storage, and security details.
+Version:   1.0		
+Date:  	   04/16/2023 	     
+Author:	   Rosalie Reblora             
+Comments:  Updated Recommendations section with system architecture, memory, storage, and security details.
 
 
 #  Executive Summary
