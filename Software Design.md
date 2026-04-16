@@ -1,10 +1,10 @@
  
 
 # Draw it or Lose it
-# CS 230 Project Software Design Template
+# CS 230 Project Software Design 
 Version 1.0
 
- ![gaming room](gamingRoom.jpg)
+ ![gaming room](gamingRoomPic.jpg)
 
 
 Document Revision History
