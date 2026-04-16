@@ -10,8 +10,11 @@ Version 1.0
 Document Revision History
 
 Version:   1.0		
+
 Date:  	   04/16/2023 	     
+
 Author:	   Rosalie Reblora             
+
 Comments:  Updated Recommendations section with system architecture, memory, storage, and security details.
 
 
@@ -75,22 +78,31 @@ Development Tools	Tools include Xcode, IntelliJ IDEA, and Visual Studio Code. Su
 # Recommendations
 
 Operating Platform
+
 I recommend that The Gaming Room host Draw It or Lose It on a Linux-based server platform, such as Ubuntu Server or Red Hat Enterprise Linux, in a cloud environment. Linux is a strong choice because it is stable, scalable, cost-effective, and widely used for web applications. It also works well with modern web servers, containers, and databases. Since the game needs to support users on multiple device types and operating systems, a Linux server can provide a centralized platform for the application backend while allowing clients to connect through standard web technologies. Linux also offers strong process isolation, user and group permissions, and flexible resource management features in the kernel. 
 A Linux server platform is appropriate because Draw It or Lose It is essentially a multiplayer, web-based application. Instead of building separate server backends for each client operating system, the company can maintain one backend service and let users connect from Windows, macOS, Linux, Android, or iOS through a browser or lightweight client. This reduces maintenance complexity and improves portability.
+
 Operating Systems Architectures
+
 The recommended Linux server platform uses a multiuser, multitasking architecture with protected processes, virtual memory, and a hierarchical file system. Linux separates user space from kernel space, which improves system stability and security because applications cannot directly control hardware or other protected resources without going through the operating system. Linux also uses process scheduling and memory management features to support many simultaneous users and requests efficiently. The kernel documentation describes resource control through cgroups, which can partition and limit system resources for groups of processes. 
 For this game, the architecture should follow a three-tier design:
 4.	Presentation layer for the web or mobile client 
 5.	Application layer for game logic, sessions, and scoring 
 6.	Data layer for persistent storage such as users, teams, games, and image metadata 
 This architecture supports scalability because each layer can be updated or expanded independently. A reverse proxy such as NGINX can sit in front of the application servers to manage HTTPS connections and distribute traffic across multiple instances. NGINX officially supports reverse proxying, load balancing, and caching, which makes it suitable for high-availability web applications. 
+
 Storage Management
+
 An appropriate storage solution for Draw It or Lose It is a combination of PostgreSQL for structured application data and object or file storage for image assets. PostgreSQL is a strong relational database choice because it is known for reliability, data integrity, access control, and replication support. These capabilities are useful for storing user accounts, game sessions, team records, scores, and audit data. PostgreSQL documentation highlights its support for roles, authentication, backup, restore, high availability, and replication. 
 Because the game may need to manage around 200 large image files, storing all images directly in the database would be less efficient than keeping them in external storage and saving only their metadata and paths in PostgreSQL. A content delivery approach can also improve performance by placing image content closer to users geographically. This reduces latency and helps the game load drawing images faster for players across different regions. The storage system should also support backups, redundancy, and replication so that game data is not lost during failures. PostgreSQL’s write-ahead logging and replication features support this need. 
+
 Memory Management
+
 The Linux platform uses virtual memory, paging, and resource controls to manage RAM efficiently. Its /proc/sys/vm controls and memory-management subsystem allow the operating system to decide what should remain in physical memory and what can be moved or reclaimed. Linux also supports memory control groups, which can limit memory usage for specific workloads and help prevent one service from exhausting the entire server. 
 For Draw It or Lose It, this matters because the game may involve roughly 1.6 GB of image data if 200 images at 8 MB each were loaded at once. The application should not load all images into memory at startup. Instead, it should use lazy loading, caching, and asynchronous loading. Only the current image and a small number of likely next images should be loaded into memory. Recently used images can remain in cache briefly to improve response time. This approach reduces lag, avoids unnecessary memory consumption, and keeps the application responsive even when many users are connected at the same time. NGINX can also buffer proxied responses and, when needed, spill excess data to temporary disk files instead of holding everything in memory. 
+
 Distributed Systems and Networks
+
 To support communication across multiple platforms, Draw It or Lose It should use a distributed client-server architecture. In this design, clients on different operating systems connect over the internet to centralized application services using standard network protocols such as HTTPS. The server manages authentication, game state, images, and persistence, while the client focuses on rendering the interface and sending player actions. This model allows the same backend to serve web browsers and other clients regardless of their local operating system.
 The distributed system should include a reverse proxy/load balancer, one or more application server instances, and a database server. NGINX can distribute incoming traffic among multiple app servers, improving throughput and fault tolerance. PostgreSQL can provide reliable transactional storage, while replication and backups improve recovery options. 
 There are important dependencies to consider:
@@ -100,7 +112,9 @@ There are important dependencies to consider:
 •	Database availability: If the database becomes unavailable, game progress and account functions may be interrupted. 
 •	Session consistency: Users must remain authenticated and synchronized during gameplay. 
 To reduce these risks, the system should use health checks, redundancy, retry logic, and monitoring. Static assets such as images should be cached when possible, while critical game data should be stored in a transactional database.
+
 Security
+
 Security should be built into both the server platform and the application design. Linux provides strong security foundations through user accounts, group permissions, protected credentials, and process isolation. The Linux kernel documentation explains that credentials such as user IDs and group IDs are tied to system objects and processes, helping enforce access control. 
 To protect user information between platforms, all traffic should use HTTPS with TLS. OWASP states that full-session TLS is essential to protect credentials and session identifiers from interception. TLS also helps verify that clients are connected to the legitimate server. In addition, secure cookies, session expiration, unpredictable session identifiers, and strong authentication controls should be used. 
 To protect user information on the platform, the system should implement:
