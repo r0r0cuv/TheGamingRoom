@@ -61,9 +61,7 @@ Lastly, the diagram shows examples of encapsulation. Each class manages its own 
 
 ![UML Diagram](images/uml-diagram.jpg)
 
- 
-
-Evaluation
+ # Evaluation
 
 Development Requirements	Mac	Linux	Windows	Mobile Devices
 Server Side	Macs offer developers a stable UNIX based system that they like. They also tend to be pricey and are rarely used as large server deployments.	Linux is the best option for servers due to its stability, security, and cost-effectiveness. It supports most web technologies and is widely used in production environments.	Windows servers are user-friendly and integrate well with Microsoft tools, but they require licensing costs and are less flexible than Linux.	Mobile devices are not suitable for server-side hosting due to limited processing power and scalability.
@@ -72,7 +70,7 @@ Client Side	Supports web applications well, but development may require Apple-sp
 Development Tools	Tools include Xcode, IntelliJ IDEA, and Visual Studio Code. Supports Java, Swift, and web technologies.	Supports tools like Eclipse, VS Code, and Git. Ideal for Java, Python, and web development.	Supports Visual Studio, Eclipse, and IntelliJ. Strong support for Java, C#, and web applications.	Development tools include Android Studio and Xcode, along with frameworks like React Native or Flutter.
 
  
-Recommendations
+# Recommendations
 
 Operating Platform
 I recommend that The Gaming Room host Draw It or Lose It on a Linux-based server platform, such as Ubuntu Server or Red Hat Enterprise Linux, in a cloud environment. Linux is a strong choice because it is stable, scalable, cost-effective, and widely used for web applications. It also works well with modern web servers, containers, and databases. Since the game needs to support users on multiple device types and operating systems, a Linux server can provide a centralized platform for the application backend while allowing clients to connect through standard web technologies. Linux also offers strong process isolation, user and group permissions, and flexible resource management features in the kernel. 
@@ -111,5 +109,6 @@ To protect user information on the platform, the system should implement:
 •	Backups and logging for recovery and auditing 
 •	Input validation to reduce risks such as injection attacks 
 PostgreSQL supports client authentication, roles, and secure administration, while Linux and NGINX support secure service separation and protected network access. Keeping supported software versions current is also important because PostgreSQL continues to publish security updates for supported releases. 
-Final Recommendation
+
+# Final Recommendation
 Overall, The Gaming Room should deploy Draw It or Lose It on a Linux-based cloud server platform using a distributed web architecture. This recommendation best supports cross-platform access, scalability, cost efficiency, and strong security. Linux provides stable operating system architecture and effective memory management, PostgreSQL offers reliable storage for structured data, and a reverse proxy such as NGINX supports load balancing and secure connections. Together, these technologies provide a practical and flexible foundation for expanding the game across multiple computing environments.
